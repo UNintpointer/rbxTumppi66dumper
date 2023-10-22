@@ -310,7 +310,6 @@ silentHook = hookfunction(new_projectile, function(...)
     args[6] = (settings.combat.silentAim and closestDir) or args[6]
     return silentHook(unpack(args))
 end)
-
 fireHook = hookfunction(fire, function(...)
     local args = {...}
     if settings.combat.infiniteAmmo then
