@@ -1,7 +1,3 @@
-while not (game or game.HttpGet) do
-    task.wait()
-end
-
 local oldHttpGet
 oldHttpGet = hookfunction(game.HttpGet, newcclosure(function(...)
     local args = {...}
