@@ -1,3 +1,4 @@
+-- // Script made by #tupsutumppu / PASTER | 31.5.2023
 local library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
 local Wait = library.subs.Wait
 local Lplr = game.Players.LocalPlayer.Name
