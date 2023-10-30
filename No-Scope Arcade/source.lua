@@ -369,7 +369,6 @@ runService.RenderStepped:Connect(function()
     Circle.Thickness = settings.combat.fovCircle.thickness
     Circle.Position = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 2)
 end)
-    
 
 -- // UI Library interactables
 silentAim:AddToggle("silentAim", {
