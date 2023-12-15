@@ -26,6 +26,18 @@ function cfun.avg(...: number): number?
     return nil
 end
 
+function cfun.rstring(length)
+    local characterSets = {{97, 122}, {65, 90}, {48, 57}}
+    local randomString = ""
+
+    for i = 1, length do
+        math.randomseed(tick() ^ 5)
+        local set = characterSets[math.random(1, #characterSets)]
+        randomString = randomString .. string.char(math.random(set[1], set[2]))
+    end
+    return randomString
+end
+
 -- // This function will return a hit position for bullet.
 function cfun.predictP(pData: pInfo, hitPart: Instance, pFrom: Vector3?): Vector3
     local distance = (hitPart.CFrame.p - (pFrom or workspace.CurrentCamera.CFrame.p)).Magnitude
