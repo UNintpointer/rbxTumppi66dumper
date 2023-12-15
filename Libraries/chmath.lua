@@ -1,6 +1,6 @@
 -- [[ "Cheat Math" Library for developing (cheat) scripts for Roblox. | Updated 15.12.2023 | Discord: #tupsu, V3rmillion: Alpenglow ]] --
 
--- // Just to make it clear this is nowhere near finished because i have no way to test this as i have no executor rn. I will be updating this whenever i get some lovely executor.
+-- // Just to make it clear this is nowhere near finished because i have no way to test this as i have no executor rn.
 
 local chmath = {}
 chmath.__index = chmath
@@ -10,6 +10,7 @@ type pInfo = {
     Gravity: number
 }
 
+-- // Standard math libray doesnt have "math.average / math.avg".
 function chmath.avg(...: number): number?
     local args = {...}
     local total = #args
@@ -25,6 +26,7 @@ function chmath.avg(...: number): number?
     return nil
 end
 
+-- // This function will return a hit position for bullet.
 function chmath.predictP(pData: pInfo, hitPart: Instance, pFrom: Vector3?): Vector3
     local distance = (hitPart.CFrame.p - (pFrom or workspace.CurrentCamera.CFrame.p)).Magnitude
     local timeToHit = distance / pData.Speed
@@ -34,6 +36,7 @@ function chmath.predictP(pData: pInfo, hitPart: Instance, pFrom: Vector3?): Vect
     return hitPos
 end
 
+-- // This function will return a direction where the bullet needs to fly.
 function chmath.predictU(pData: pInfo, hitPart: Instance, pFrom: Vector3): Vector3
     local distance = (hitPart.CFrame.p - workspace.CurrentCamera.CFrame.p).Magnitude
     local timeToHit = distance / pData.Speed
