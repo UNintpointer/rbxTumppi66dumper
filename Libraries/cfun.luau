@@ -1,9 +1,9 @@
--- [[ "Cheat Math" Library for developing (cheat) scripts for Roblox. | Updated 15.12.2023 | Discord: #tupsu, V3rmillion: Alpenglow ]] --
+-- [[ "Cheat Functions" Library for developing (cheat) scripts for Roblox. | Updated 15.12.2023 | Discord: #tupsu, V3rmillion: Alpenglow ]] --
 
 -- // Just to make it clear this is nowhere near finished because i have no way to test this as i have no executor rn.
 
-local chmath = {}
-chmath.__index = chmath
+local cfun = {}
+cfun.__index = cfun
 
 type pInfo = {
     Speed: number,
@@ -11,7 +11,7 @@ type pInfo = {
 }
 
 -- // Standard math libray doesnt have "math.average / math.avg".
-function chmath.avg(...: number): number?
+function cfun.avg(...: number): number?
     local args = {...}
     local total = #args
 
@@ -27,7 +27,7 @@ function chmath.avg(...: number): number?
 end
 
 -- // This function will return a hit position for bullet.
-function chmath.predictP(pData: pInfo, hitPart: Instance, pFrom: Vector3?): Vector3
+function cfun.predictP(pData: pInfo, hitPart: Instance, pFrom: Vector3?): Vector3
     local distance = (hitPart.CFrame.p - (pFrom or workspace.CurrentCamera.CFrame.p)).Magnitude
     local timeToHit = distance / pData.Speed
     local velocity = hitPart.Velocity + Vector3.new(0, pData.Gravity * (timeToHit / 2), 0)
@@ -37,7 +37,7 @@ function chmath.predictP(pData: pInfo, hitPart: Instance, pFrom: Vector3?): Vect
 end
 
 -- // This function will return a direction where the bullet needs to fly.
-function chmath.predictU(pData: pInfo, hitPart: Instance, pFrom: Vector3): Vector3
+function cfun.predictU(pData: pInfo, hitPart: Instance, pFrom: Vector3): Vector3
     local distance = (hitPart.CFrame.p - workspace.CurrentCamera.CFrame.p).Magnitude
     local timeToHit = distance / pData.Speed
     local velocity = hitPart.Velocity + Vector3.new(0, pData.Gravity * (timeToHit / 2), 0)
@@ -46,8 +46,8 @@ function chmath.predictU(pData: pInfo, hitPart: Instance, pFrom: Vector3): Vecto
     return hitPos
 end
 
-function chmath.calc2dbox(char: Model): Vector2?
+function cfun.calc2dbox(char: Model): Vector2?
     return
 end
 
-return chmath
+return cfun
