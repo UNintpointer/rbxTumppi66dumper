@@ -26,7 +26,7 @@ function cfun.avg(...: number): number?
     return nil
 end
 
-function cfun.rstring(length)
+function cfun.rstring(length: number): string
     local characterSets = {{97, 122}, {65, 90}, {48, 57}}
     local randomString = ""
 
