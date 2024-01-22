@@ -31,6 +31,9 @@ local t2 = {"Hello!", "Hi!", 55, 28, 27}
 print(t1 + t2) --> error
 ```
 ```
+local t1 = {"Hello World", "Lua is COOL!", 1, 68, 10}
+local t2 = {"Hello!", "Hi!", 55, 28, 27}
+
 local meta = {
     __add = function(a1, a2)
         if typeof(a1) == "number" and typeof(a2) == "number" then
