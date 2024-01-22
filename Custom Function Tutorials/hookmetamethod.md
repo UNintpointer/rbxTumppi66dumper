@@ -23,7 +23,7 @@ Lua has multiple metamethods; here is a list of some of them:
 
     “__newindex” allows customization of table assignment. 
 
-As you probably know, in Lua, you cannot add the numeric values together from two tables using the addition ('+') operator. However, by modifying the metamethod '__add', we can achieve this. Here is an example:
+As you probably know, in Lua, you cannot add the numeric values together from two tables using the addition ('+') operator. However, by modifying the metamethod "__add", we can achieve this. Here is an example:
 ```
 local t1 = {"Hello World", "Lua is COOL!", 1, 68, 10}
 local t2 = {"Hello!", "Hi!", 55, 28, 27}
