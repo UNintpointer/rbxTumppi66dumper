@@ -56,7 +56,7 @@ setmetatable(t1, meta)
 setmetatable(t2, meta)
 
 -- // Lets try again
-print(t1 + t2) --> now it will print "189" and will not error
+print(t1 + t2) --> 189
 ```
 Now that you have an idea of what metamethods are, I can show you why hookmetamethod is a very powerful function provided by our executors.
 ```
