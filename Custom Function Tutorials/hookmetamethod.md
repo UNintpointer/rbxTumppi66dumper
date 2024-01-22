@@ -28,7 +28,7 @@ As you probably know, in Lua, you cannot add the numeric values together from tw
 local t1 = {"Hello World", "Lua is COOL!", 1, 68, 10}
 local t2 = {"Hello!", "Hi!", 55, 28, 27}
 
--- // If we try to print(t1 + t2) the code will error.
+print(t1 + t2) --> error
 ```
 ```
 local meta = {
