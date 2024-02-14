@@ -1,4 +1,4 @@
--- // Autofarm made by #tupsutumppu / PASTER | 25.8.2023
+-- // Autofarm made by #tupsutumppu | 25.8.2023
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local FoodClerk = game:GetService("Workspace").WorkEnvironments["Nomburger_Food Clerk"]
 local NPCFolder = FoodClerk.NPCs
