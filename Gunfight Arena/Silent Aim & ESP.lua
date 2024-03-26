@@ -1,4 +1,4 @@
--- Gunfight Arena | Created by #tupsutumppu | 25.3.2024
+-- Gunfight Arena | Created by #tupsutumppu | 26.3.2024
 local PLAYERS = cloneref(game:GetService("Players"));
 local REPLICATED_STORAGE = cloneref(game:GetService("ReplicatedStorage"));
 local RUN_SERVICE = cloneref(game:GetService("RunService"));
@@ -124,6 +124,7 @@ run_on_actor(actors[1], [[
                 if not rawget(tbl, key) and compareinstances(rawget(value, "Shooter"), localPlayer) then
                     local oldStart = rawget(value, "start");
                     local closest = get_closest();
+                    rawset(value, "vel", 99999)
     
                     if closest and oldStart and closest:FindFirstChild("Head") then
                         local newCFrame = CFrame.lookAt(oldStart.Position, closest.Head.CFrame.Position);
