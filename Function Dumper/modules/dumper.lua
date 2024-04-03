@@ -273,7 +273,7 @@ local repr1_2 = loadstring([[
             else
                 if typeof(v) == "function" then
                     local info = debug.getinfo(v);
-                    return `<{value}\t{info.name or ""}({(info.is_vararg ~= 1 and get_args(func.info.numparams)) or "..."})>`;
+                    return `<{value}\t{info.name or ""}({(info.is_vararg ~= 1 and get_args(info.numparams)) or "..."})>`;
                 else
                     return "<" .. typeof(v) .. ">";
                 end
@@ -281,7 +281,7 @@ local repr1_2 = loadstring([[
         else
             if type(v) == "function" then
                 local info = debug.getinfo(v);
-                return `<{value}\t{info.name or ""}({(info.is_vararg ~= 1 and get_args(func.info.numparams)) or "..."})>`;
+                return `<{value}\t{info.name or ""}({(info.is_vararg ~= 1 and get_args(info.numparams)) or "..."})>`;
             else
                 return "<" .. type(v) .. ">";
             end
