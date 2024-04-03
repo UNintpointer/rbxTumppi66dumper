@@ -75,10 +75,8 @@ function dumper.function_dump(scrName)
 
                 for key, value in pairs(func.upvalues) do
                     if typeof(value) == "function" then
-                        print("FUNCTION")
                         local info = debug.getinfo(value);
                         upvalueStr ..= `upvalue[{key}] = function {(info.name or "__UNNAMED PROTO_")}({(info.is_vararg ~= 1 and get_args(info.numparams)) or "..."})\n`;
-                        print(`upvalue[{key}] = function: {(info.name or "__UNNAMED PROTO_")}({(info.is_vararg ~= 1 and get_args(info.numparams)) or "..."})\n`)
 
                     elseif typeof(value) == "table" then
                         upvalueStr ..= `upvalue[{key}] = {repr1_2(value, reprSettings)}\n`;
