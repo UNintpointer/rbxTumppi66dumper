@@ -271,12 +271,17 @@ local repr1_2 = loadstring([[
             elseif (typeof(v) == "DateTime") then
                 return ("DateTime.fromIsoDate(%q)"):format(v:ToIsoDate());
             else
-                return "<" .. typeof(v) .. ">";
+                if typeof(v) == "function" then
+                    local info = debug.getinfo(v);
+                    return `<{value}\t{info.name or ""}({(func.info.is_vararg ~= 1 and get_args(func.info.numparams)) or "..."})>`;
+                else
+                    return "<" .. typeof(v) .. ">";
+                end
             end
         else
             if type(v) == "function" then
                 local info = debug.getinfo(v);
-                return `<{value}\t{upvalInfo.name or ""}({(func.info.is_vararg ~= 1 and get_args(func.info.numparams)) or "..."})>`;
+                return `<{value}\t{info.name or ""}({(func.info.is_vararg ~= 1 and get_args(func.info.numparams)) or "..."})>`;
             else
                 return "<" .. type(v) .. ">";
             end
