@@ -11,7 +11,7 @@ local defaultSettings = {
     sortKeys = true
 };
 
-local function get_args(numparams)
+local function get_args2(numparams)
     local argStr = "";
 
     for arg = 1, numparams do
@@ -270,7 +270,7 @@ local function repr(value, reprSettings)
         else
             if typeof(v) == "function" then
                 local info = debug.getinfo(v);
-                return `<function {info.name or "__UNNAMED__"}({(info.is_vararg ~= 1 and get_args(info.numparams)) or "..."})>`;
+                return `<function {info.name or "__UNNAMED__"}({(info.is_vararg ~= 1 and get_args2(info.numparams)) or "..."})>`;
             else
                 return "<" .. typeof(v) .. ">";
             end
@@ -278,7 +278,7 @@ local function repr(value, reprSettings)
     else
         if type(v) == "function" then
             local info = debug.getinfo(v);
-            return `<function {info.name or "__UNNAMED__"}({(info.is_vararg ~= 1 and get_args(info.numparams)) or "..."})>`;
+            return `<function {info.name or "__UNNAMED__"}({(info.is_vararg ~= 1 and get_args2(info.numparams)) or "..."})>`;
         else
             return "<" .. type(v) .. ">";
         end
