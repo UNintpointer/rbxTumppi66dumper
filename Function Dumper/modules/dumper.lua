@@ -85,7 +85,6 @@ function dumper.function_dump(scrName)
     
                     else
                         upvalueStr ..= `upvalue[{key}] = {value}\n`;
-                        print(typeof(value))
                     end
                 end
 
