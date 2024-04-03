@@ -270,7 +270,7 @@ local function repr(value, reprSettings)
         else
             if typeof(v) == "function" then
                 local info = debug.getinfo(v);
-                return `<function {info.name or "__UNNAMED__"}({(info.is_vararg ~= 1 and get_args2(info.numparams)) or "..."})>`;
+                return `function: {info.name or "__UNNAMED__"}({(info.is_vararg ~= 1 and get_args2(info.numparams)) or "..."})`;
             else
                 return "<" .. typeof(v) .. ">";
             end
@@ -278,7 +278,7 @@ local function repr(value, reprSettings)
     else
         if type(v) == "function" then
             local info = debug.getinfo(v);
-            return `<function {info.name or "__UNNAMED__"}({(info.is_vararg ~= 1 and get_args2(info.numparams)) or "..."})>`;
+            return `function: {info.name or "__UNNAMED__"}({(info.is_vararg ~= 1 and get_args2(info.numparams)) or "..."})`;
         else
             return "<" .. type(v) .. ">";
         end
