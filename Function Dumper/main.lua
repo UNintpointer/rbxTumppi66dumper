@@ -14,7 +14,7 @@ local function render_dumper_window()
             Iris.Separator();
 
             if Iris.Button({"save to file"}).clicked then
-                task.defer(dumper.save_to_file,dumpCache.dumpStr, dumpCache.scriptName);
+                task.defer(dumper.save_to_file, dumpCache.dumpStr, dumpCache.scriptName);
             end
         end
         Iris.End();
