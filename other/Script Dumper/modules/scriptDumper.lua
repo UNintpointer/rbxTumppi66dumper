@@ -285,6 +285,17 @@ local repr1_2 = loadstring([[
     return repr;
 ]])();
 
+local reprSettings = {
+    pretty = true;
+	robloxFullName = false;
+	robloxProperFullName = false;
+	robloxClassName = false;
+	tabs = true;
+	semicolons = false;
+	spaces = 4;
+	sortKeys = false;
+}
+
 function scriptDumper.save_to_file(parts, name)
     local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
     local folder = (isfolder(gameName) and gameName) or makefolder(gameName);
