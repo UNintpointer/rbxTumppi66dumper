@@ -12,17 +12,18 @@ local reprSettings = {
 	sortKeys = false;
 }
 
-function dumper.save_to_file(parts, name)
+function dumper.save_to_file(parts, scr)
+    print(typeof(scr))
     local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name;
     local folder = (isfolder(gameName) and gameName) or makefolder(gameName);
-    local fileName = `{folder}/{name}_{math.floor(math.random(1, 999))}.txt`; -- boohoo
+    local fileName = `{folder}/{tostring(scr)}_{math.floor(math.random(1, 999))}.txt`; -- boohoo
 
     for _, part in pairs(parts) do
         appendfile(fileName, part .. "\n-----------------------------------------\n");
     end
 end
 
-function dumper.function_dump(scrName)
+function dumper.function_dump(scr)
     local functions = {};
     local dump = {};
 
@@ -50,9 +51,8 @@ function dumper.function_dump(scrName)
     for _, value in pairs(getgc()) do
         if typeof(value) == "function" and islclosure(value) then
             local info = debug.getinfo(value);
-            local scriptName = string.match(info.short_src, "%.([%w_]+)$");
 
-            if scriptName == scrName then
+            if string.find(info.short_src, scr:GetFullName()) then
 
                 functions[value] = {
                     info = info;
