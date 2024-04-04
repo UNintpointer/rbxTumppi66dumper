@@ -4,17 +4,17 @@ local dumper = loadstring(game:HttpGet("https://raw.githubusercontent.com/Tumppi
 
 local scripts = getscripts();
 local scriptCache = table.clone(scripts);
-local dumpCache = {scriptName = nil; dumpStr = {}};
+local dumpCache = {scr = nil; dumpStr = {}};
 local openWindow = nil;
 
 local function render_dumper_window()
-    Iris.Window({openWindow, [Iris.Args.Window.NoClose] = true}, {size = Iris.State(Vector2.new(1000, 800))}) do
+    Iris.Window({tostring(openWindow), [Iris.Args.Window.NoClose] = true}, {size = Iris.State(Vector2.new(1000, 800))}) do
         Iris.SameLine() do
             Iris.Text({"dumped by #tupsutumppu"});
             Iris.Separator();
 
             if Iris.Button({"save to file"}).clicked then
-                task.defer(dumper.save_to_file, dumpCache.dumpStr, dumpCache.scriptName);
+                task.defer(dumper.save_to_file, dumpCache.dumpStr, dumpCache.scr);
             end
         end
         Iris.End();
@@ -51,16 +51,15 @@ Iris:Connect(function()
         Iris.Separator();
 
         for _, scr in pairs(scriptCache) do
-            local scriptName = tostring(scr);
 
-            Iris.Tree({scriptName}) do
+            Iris.Tree({tostring(scr)}) do
                 Iris.SameLine() do
                     if Iris.Button({"open"}).clicked then
-                        openWindow = scriptName;
+                        openWindow = scr;
 
-                        if dumpCache.scriptName ~= scriptName then
-                            dumpCache.scriptName = scriptName;
-                            dumpCache.dumpStr = dumper.function_dump(scriptName);
+                        if dumpCache.scr ~= scr then
+                            dumpCache.scr = scr;
+                            dumpCache.dumpStr = dumper.function_dump(scr);
                         end
                     end
                     if Iris.Button({"close"}).clicked then
